@@ -1,25 +1,49 @@
 services:
-  web:
+  frontend:
     build:
-      context: .
+      context: ./pc
+    container_name: mili-frontend
     restart: always
-    container_name: mili-web
+    environment:
+      PUBLIC_PATH: "//localhost:9906/"
     ports:
-      - "9905:9905"
       - "9906:9906"
-    volumes:
     networks:
       - mili-network
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:9900" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+    container_name: mili-web
+    restart: always
+    environment:
+      PORT: 9905
+      DB_HOST: mysql
+      REDIS_HOST: redis
+      STATS_D_HOST: graphite
+      STATIC_URL: "//localhost:9906"
+    ports:
+      - "9905:9905"
+    networks:
+      - mili-network
+    depends_on:
+      - mysql
+      - redis
+      - graphite
+      - frontend
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9905" ]
       interval: 10s
       timeout: 5s
       retries: 5
 
   mysql:
     image: mysql:5.6
-    # macOS 使用下面
-    # platform: linux/amd64
     container_name: mili-mysql
     restart: always
     environment:
@@ -42,8 +66,6 @@ services:
 
   redis:
     image: redis:latest
-    # macOS 使用下面
-    # image: arm64v8/redis:latest
     container_name: mili-redis
     restart: always
     command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_password}
@@ -57,6 +79,40 @@ services:
       - mili-network
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  graphite:
+    image: graphiteapp/graphite-statsd
+    container_name: ops-graphite
+    restart: always
+    ports:
+      - "8880:80"
+      - "2003-2004:2003-2004"
+      - "2023-2024:2023-2024"
+      - "8125:8125/udp"
+      - "8126:8126"
+    networks:
+      - mili-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:80" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  grafana:
+    image: grafana/grafana
+    container_name: ops-grafana
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - mili-network
+    depends_on:
+      - graphite
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3000/api/health" ]
       interval: 10s
       timeout: 5s
       retries: 5

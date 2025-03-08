@@ -17,8 +17,16 @@ mili
 | mysql  |  5.6.35 |
 | redis  |  4.0.1 |
 
+## Quickstart
+```bash
+wget 
 
-### Docker 运行
+docker compose up -d
+
+```
+
+
+## Docker 运行
 > 确保全程 🪜 在线，不然 docker.io 和 ghcr.io 拉不下来
 >
 > macOS 建议使用 OrbStack (注意需要安装 Rosetta)，Windows 建议使用 WSL2
@@ -34,7 +42,7 @@ docker compose up -d
 
 > 注意：在 Apple Silicon 芯片的 Mac 上，某些依赖可能需要使用 x86_64 架构运行以避免兼容性问题。使用 `--platform linux/amd64` 参数可以确保容器在模拟的 x86_64 环境中运行。
 
-### 本地开发
+## 本地开发
 强烈强烈强烈建议用 Docker Compose 来运行
 
 不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++、npm拉git 问题，还有数据库缺胳膊少腿
