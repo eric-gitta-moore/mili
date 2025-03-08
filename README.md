@@ -22,7 +22,7 @@ mili
 一步到位
 
 ```bash
-wget https://github.com/eric-gitta-moore/mili/raw/master/docker-compose.yaml
+git clone https://github.com/eric-gitta-moore/mili.git
 
 docker compose up -d
 ```
