@@ -29,8 +29,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/${{ github.repository }}/backend
-            ghcr.io/${{ github.repository }}/frontend
+            ghcr.io/${{ github.repository }}/mili-backend
+            ghcr.io/${{ github.repository }}/mili-frontend
           tags: |
             type=ref,event=branch
             type=ref,event=pr

@@ -17,12 +17,14 @@ mili
 | mysql  |  5.6.35 |
 | redis  |  4.0.1 |
 
+
 ## Quickstart
+一步到位
+
 ```bash
-wget 
+wget https://github.com/eric-gitta-moore/mili/raw/master/docker-compose.yaml
 
 docker compose up -d
-
 ```
 
 
@@ -37,7 +39,8 @@ docker compose up -d
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # 普通环境运行
-docker compose up -d
+# 如果需要构建的话，需要在 docker-compose.yaml 中取消 build 的注释
+docker compose up -d --build
 ```
 
 > 注意：在 Apple Silicon 芯片的 Mac 上，某些依赖可能需要使用 x86_64 架构运行以避免兼容性问题。使用 `--platform linux/amd64` 参数可以确保容器在模拟的 x86_64 环境中运行。
