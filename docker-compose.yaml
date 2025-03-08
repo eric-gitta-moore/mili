@@ -3,6 +3,7 @@ services:
     build:
       context: ./pc
     container_name: mili-frontend
+    platform: linux/amd64
     restart: always
     environment:
       PUBLIC_PATH: "//localhost:9906/"
@@ -20,6 +21,7 @@ services:
     build:
       context: .
     container_name: mili-web
+    platform: linux/amd64
     restart: always
     environment:
       PORT: 9905
@@ -45,6 +47,7 @@ services:
   mysql:
     image: mysql:5.6
     container_name: mili-mysql
+    platform: linux/amd64
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root_password
