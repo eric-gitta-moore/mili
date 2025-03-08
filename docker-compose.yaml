@@ -1,0 +1,66 @@
+services:
+  web:
+    build:
+      context: .
+    restart: always
+    container_name: mili-web
+    ports:
+      - "9905:9905"
+      - "9906:9906"
+    volumes:
+    networks:
+      - mili-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql:
+    image: mysql:5.6
+    # macOS 使用下面
+    # platform: linux/amd64
+    container_name: mili-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: ${MILI_MYSQL_DB:-mili}
+      MYSQL_USER: ${MILI_MYSQL_USER:-mili}
+      MYSQL_PASSWORD: ${MILI_MYSQL_PASSWORD:-mili_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./runtime/mysql_data:/var/lib/mysql
+      - ./sql/init-database:/docker-entrypoint-initdb.d
+    networks:
+      - mili-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:latest
+    # macOS 使用下面
+    # image: arm64v8/redis:latest
+    container_name: mili-redis
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis_password}
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-redis_password}
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./runtime/redis_data:/data
+    networks:
+      - mili-network
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  mili-network:
+    driver: bridge

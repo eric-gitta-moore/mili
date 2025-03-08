@@ -30,11 +30,11 @@ docker compose up -d
 ### 本地开发
 强烈强烈强烈建议用 Docker Compose 来运行
 
-不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++ 环境，还有数据库缺胳膊少腿
+不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++、npm拉git 问题，还有数据库缺胳膊少腿
 
-首页: http://localhost:9905
-管理后台: http://localhost:9905/admin/
-API: http://localhost:9906
+首页: http://localhost:9906
+管理后台: http://localhost:9906/admin/
+API: http://localhost:9905
 用户名: 13544443333
 密码: 13544443333
 
