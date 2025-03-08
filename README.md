@@ -24,8 +24,15 @@ mili
 > macOS 建议使用 OrbStack (注意需要安装 Rosetta)，Windows 建议使用 WSL2
 
 ```bash
+# macOS M芯片(Apple Silicon)环境运行
+# 由于项目依赖的一些组件在ARM架构上可能存在兼容性问题，需要使用x86_64模拟运行
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# 普通环境运行
 docker compose up -d
 ```
+
+> 注意：在 Apple Silicon 芯片的 Mac 上，某些依赖可能需要使用 x86_64 架构运行以避免兼容性问题。使用 `--platform linux/amd64` 参数可以确保容器在模拟的 x86_64 环境中运行。
 
 ### 本地开发
 强烈强烈强烈建议用 Docker Compose 来运行
