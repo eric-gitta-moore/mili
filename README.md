@@ -226,6 +226,55 @@ npm start
 ### 线上体验
 https://www.nodejs123.com    
 
+## 📊 监控系统
+
+### Graphite
+Graphite 是一个用于收集、存储和可视化时间序列数据的开源监控系统。在本项目中，我们使用 Graphite 来收集和存储性能指标数据。
+
+#### 访问 Graphite
+- Web 界面: http://localhost:8880
+- 默认用户名: root
+- 默认密码: root
+
+#### 数据收集端口
+- Carbon 缓存: 2003-2004 (接收指标数据)
+- Carbon 聚合: 2023-2024
+- StatsD UDP: 8125 (接收应用程序统计数据)
+- StatsD 管理: 8126
+
+### Grafana
+Grafana 是一个强大的可视化和分析平台，可以将来自 Graphite 等多个数据源的数据以漂亮的仪表板形式展示。
+
+#### 访问 Grafana
+- Web 界面: http://localhost:3000
+- 默认用户名: admin
+- 默认密码: admin
+
+#### 配置 Graphite 数据源
+1. 登录 Grafana
+2. 点击左侧菜单的 "Configuration" (⚙️) 图标
+3. 选择 "Data sources"
+4. 点击 "Add data source"
+5. 选择 "Graphite"
+6. 配置以下信息：
+   - Name: Graphite
+   - URL: http://graphite:80
+   - Access: Server (default)
+7. 点击 "Save & Test" 验证连接
+
+#### 创建仪表板
+1. 点击左侧 "+" 图标
+2. 选择 "Create Dashboard"
+3. 点击 "Add visualization"
+4. 选择 "Graphite" 数据源
+5. 在查询编辑器中构建你的查询
+
+常用指标示例：
+- CPU 使用率: `stats.gauges.system.cpu.*`
+- 内存使用: `stats.gauges.system.memory.*`
+- API 响应时间: `stats.timers.api.*`
+- 请求计数: `stats.counters.http.*`
+
 ## License
 [GPL](https://github.com/shen100/golang123-api/blob/master/LICENSE "")      
 Mili is GPL licensed.
