@@ -1,12 +1,12 @@
 import * as path from 'path';
 
-const domain = 'dev.golang123.com';
+const domain = 'localhost';
 const port = 9905;
 const url = `http://${domain}`;
 const mDomain = 'm-dev.golang123.com';
 const mURL = `http://${mDomain}`;
 
-const staticURL = `http://${domain}`;
+const staticURL = `http://${domain}:9906`;
 
 export default {
     db: {
@@ -14,8 +14,8 @@ export default {
         host: 'localhost',
         port: 3306,
         charset: 'utf8mb4',
-        username: '',
-        password: '',
+        username: 'mili',
+        password: 'mili_password',
         database: 'mili',
         synchronize: false,
         entities: [path.join(__dirname, '../entity/**/*.entity{.ts,.js}')],
@@ -28,7 +28,7 @@ export default {
         port: 6379,
         keyPrefix: 'mili:',
         family: 4, // 4 (IPv4) or 6 (IPv6)
-        password: '',
+        password: 'redis_password',
         db: 0,
     },
     static: {
