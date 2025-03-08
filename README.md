@@ -23,7 +23,7 @@ mili
 
 ```bash
 git clone https://github.com/eric-gitta-moore/mili.git
-
+cd mili
 docker compose up -d
 ```
 
