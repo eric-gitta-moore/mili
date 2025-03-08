@@ -5,7 +5,9 @@ mili
 已在[米粒网](https://www.golang123.com) 得到应用，你完全可以用它来搭建自己的社区。**mili**的前端使用**vue**、**iview**等技术来开发，后端使用**typescript**、**nodejs**、**nestjs**、**typeorm**等技术来开发。 
 
 ## 🎆 系统截图
-<img src="https://img.golang123.com/upload/img/2020/2/1581129636269.gif?v=1" width="1000" alt=""/>
+![系统截图](./screenshots/localhost_9905_%20(1).jpg)
+
+![系统截图](./screenshots/localhost_9905_p_3.jpg)
 
 ## 👉 依赖的软件
 | 软件 | 版本|  
@@ -14,6 +16,28 @@ mili
 | node.js     |  8.4.0 |
 | mysql  |  5.6.35 |
 | redis  |  4.0.1 |
+
+
+### Docker 运行
+> 确保全程 🪜 在线，不然 docker.io 和 ghcr.io 拉不下来
+>
+> macOS 建议使用 OrbStack (注意需要安装 Rosetta)，Windows 建议使用 WSL2
+
+```bash
+docker compose up -d
+```
+
+### 本地开发
+强烈强烈强烈建议用 Docker Compose 来运行
+
+不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++ 环境，还有数据库缺胳膊少腿
+
+首页: http://localhost:9905
+管理后台: http://localhost:9905/admin/
+API: http://localhost:9906
+用户名: 13544443333
+密码: 13544443333
+
 
 ## ⚙️ 配置
 ### 配置hosts
