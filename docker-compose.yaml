@@ -11,7 +11,7 @@ services:
     networks:
       - mili-network
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9900" ]
+      test: [ "CMD", "curl", "-f", "http://localhost:9906" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -95,11 +95,6 @@ services:
       - "8126:8126"
     networks:
       - mili-network
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:80" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   grafana:
     image: grafana/grafana
