@@ -26,6 +26,7 @@ git clone https://github.com/eric-gitta-moore/mili.git
 cd mili
 docker compose up -d
 ```
+![](https://github.com/user-attachments/assets/a0c1d315-f43e-43b6-ba1a-2cd44c2c07c8)
 
 
 ## Docker 运行
