@@ -1,21 +1,4 @@
 services:
-  devcontainer:
-    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:22
-    container_name: mili-devcontainer
-    profiles: [ dev ]
-    tty: true
-    stdin_open: true
-    command: [ "tail", "-f", "/dev/null" ]
-    entrypoint: [ "/bin/bash", "-c" ]
-    networks:
-      - mili-network
-    volumes:
-      - .:/workspaces/mili
-      # 如果 macOS 使用 OrbStack
-      # - ~/.orbstack/run/docker.sock:/var/run/docker.sock
-      - /var/run/docker.sock:/var/run/docker.sock
-
-
   frontend:
     # build:
     #   context: ./pc

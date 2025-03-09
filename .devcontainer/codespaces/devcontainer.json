@@ -1,19 +1,11 @@
 {
   "name": "Mili Container",
-  "dockerComposeFile": [
-    "../docker-compose.yaml"
-  ],
-  "service": "devcontainer",
-  "runServices": [
-    "devcontainer",
-    "frontend",
-    "backend",
-    "mysql",
-    "redis",
-    "graphite",
-    "grafana"
-  ],
-  "workspaceFolder": "/workspaces/mili",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [],
@@ -30,6 +22,6 @@
     "graphite:8880", // Graphite监控服务端口
     "grafana:3000" // Grafana监控面板端口
   ],
-  // "onCreateCommand": "apk add bash curl git libstdc++ procps-ng",
-  // "remoteUser": "node"
+  "remoteUser": "vscode",
+  "postAttachCommand": "cd /workspace && docker compose up -d"
 }
