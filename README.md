@@ -37,6 +37,9 @@
 > Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
 >
 
+![image](https://github.com/user-attachments/assets/70ffa8d6-fa0f-420e-b348-110d43d6cec1)
+
+
 ## 本地运行
 首页: http://localhost:7780/
 
