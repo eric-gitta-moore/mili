@@ -30,14 +30,19 @@
 
 ![image](https://github.com/user-attachments/assets/3d0903e9-2b4a-479c-8df0-5c3cd1beec01)
 
-映射端口 `7780`
+打开映射端口 `7780`
 
 > (通常不需要这一步) 手动查看构建日志:
 >
 > Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
 >
 
-![image](https://github.com/user-attachments/assets/70ffa8d6-fa0f-420e-b348-110d43d6cec1)
+<table>
+    <tr>
+        <td><img src='https://github.com/user-attachments/assets/70ffa8d6-fa0f-420e-b348-110d43d6cec1' /></td>
+        <td><img src='https://github.com/user-attachments/assets/259d5c61-7341-42dd-b7b0-b04e0ba3c271' /></td>
+    </tr>
+</table>
 
 
 ## 本地运行
