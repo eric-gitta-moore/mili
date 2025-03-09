@@ -7,13 +7,13 @@ services:
     platform: linux/amd64
     restart: always
     environment:
-      PUBLIC_PATH: "//localhost:9906/"
+      PUBLIC_PATH: "//127.0.0.1:9906/"
     ports:
       - "9906:9906"
     networks:
       - mili-network
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9906" ]
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:9906" ]
       start_period: 10s
 
   backend:
@@ -39,7 +39,7 @@ services:
       - graphite
       - frontend
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:9905" ]
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:9905" ]
       start_period: 10s
 
   canddy:
@@ -59,7 +59,7 @@ services:
       - frontend
       - backend
     healthcheck:
-      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://localhost/health" ]
+      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://127.0.0.1/health" ]
       start_period: 10s
 
   mysql:
@@ -80,7 +80,7 @@ services:
     networks:
       - mili-network
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1" ]
       start_period: 10s
 
   redis:
@@ -113,7 +113,7 @@ services:
     networks:
       - mili-network
     healthcheck:
-      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://localhost/" ]
+      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://127.0.0.1/" ]
       start_period: 10s
 
   grafana:
@@ -127,7 +127,7 @@ services:
     depends_on:
       - graphite
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:3000/api/health" ]
+      test: [ "CMD", "curl", "-f", "http://127.0.0.1:3000/api/health" ]
       start_period: 10s
 
 networks:
