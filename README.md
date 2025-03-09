@@ -26,10 +26,11 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/eric-gitta-moore/mili)
 
-映射端口 `7780`
+注意: `Dev container configuration` 选择 `Mili Container`
 
 ![image](https://github.com/user-attachments/assets/3d0903e9-2b4a-479c-8df0-5c3cd1beec01)
 
+映射端口 `7780`
 
 ## 本地运行
 首页: http://localhost:7780/
