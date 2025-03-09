@@ -1,5 +1,5 @@
 {
-  "name": "Mili Development",
+  "name": "Mili Container",
   "dockerComposeFile": [
     "../docker-compose.yaml"
   ],
