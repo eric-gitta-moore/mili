@@ -26,13 +26,19 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/eric-gitta-moore/mili)
 
+映射端口 `7780`
+
 ## 本地运行
+首页: http://localhost:7780/
+
+管理后台: http://localhost:7780/admin/
 
 ```bash
 git clone https://github.com/eric-gitta-moore/mili.git
 cd mili
 docker compose up -d
 ```
+
 ![](https://github.com/user-attachments/assets/a0c1d315-f43e-43b6-ba1a-2cd44c2c07c8)
 
 
@@ -57,6 +63,12 @@ docker compose up -d --build
 强烈强烈强烈建议用 Docker Compose 来运行
 
 不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++、npm拉git 问题，还有数据库缺胳膊少腿
+
+> 如果是 Docker Compose 运行的话，端口为: 7780
+>
+> 首页: http://localhost:7780/
+>
+> 管理后台: http://localhost:7780/admin/
 
 首页: http://localhost:9906
 
