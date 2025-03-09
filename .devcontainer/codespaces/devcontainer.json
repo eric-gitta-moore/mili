@@ -6,7 +6,18 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": [],
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "Gxl.git-graph-3",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        "mtxr.sqltools-driver-pg",
+        "Vue.volar",
+        "mxsdev.typescript-explorer",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "matthewpi.caddyfile-support",
+      ],
       "settings": {
         "editor.formatOnSave": true
       }
