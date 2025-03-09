@@ -9,6 +9,12 @@ services:
     entrypoint: [ "/bin/bash", "-c" ]
     networks:
       - mili-network
+    volumes:
+      - .:/workspaces/mili
+      # 如果 macOS 使用 OrbStack
+      # - ~/.orbstack/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
+
 
   frontend:
     # build:

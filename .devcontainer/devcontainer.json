@@ -13,7 +13,7 @@
     "graphite",
     "grafana"
   ],
-  "workspaceFolder": "/home/node",
+  "workspaceFolder": "/workspaces/mili",
   "customizations": {
     "vscode": {
       "extensions": [],

@@ -22,6 +22,8 @@
 ## Quickstart
 代码都不想拉？直接浏览器里面一步到位
 
+> 容器比较多，需要一会儿。能看到命令行就是在运行了
+
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/eric-gitta-moore/mili)
 
 ## 本地运行
