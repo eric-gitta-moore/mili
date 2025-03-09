@@ -1,8 +1,6 @@
 {
   "name": "Mili Container",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
@@ -22,6 +20,5 @@
     "graphite:8880", // Graphite监控服务端口
     "grafana:3000" // Grafana监控面板端口
   ],
-  "remoteUser": "vscode",
-  "postAttachCommand": "cd /workspace && docker compose up -d"
+  "postAttachCommand": "cd /workspaces/mili/ && docker compose up -d"
 }
