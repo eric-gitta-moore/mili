@@ -28,6 +28,9 @@
 
 映射端口 `7780`
 
+![image](https://github.com/user-attachments/assets/3d0903e9-2b4a-479c-8df0-5c3cd1beec01)
+
+
 ## 本地运行
 首页: http://localhost:7780/
 
