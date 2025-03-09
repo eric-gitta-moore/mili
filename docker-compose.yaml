@@ -1,8 +1,8 @@
 services:
   frontend:
-    build:
-      context: ./pc
-    # image: ghcr.io/eric-gitta-moore/mili/mili-frontend:master
+    # build:
+    #   context: ./pc
+    image: ghcr.io/eric-gitta-moore/mili/mili-frontend:master
     container_name: mili-frontend
     platform: linux/amd64
     restart: always
@@ -17,9 +17,9 @@ services:
       start_period: 10s
 
   backend:
-    build:
-      context: .
-    # image: ghcr.io/eric-gitta-moore/mili/mili-backend:master
+    # build:
+    #   context: .
+    image: ghcr.io/eric-gitta-moore/mili/mili-backend:master
     container_name: mili-web
     platform: linux/amd64
     restart: always
