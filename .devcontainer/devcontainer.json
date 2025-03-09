@@ -1,0 +1,35 @@
+{
+  "name": "Mili Development",
+  "dockerComposeFile": [
+    "../docker-compose.yaml"
+  ],
+  "service": "devcontainer",
+  "runServices": [
+    "devcontainer",
+    "frontend",
+    "backend",
+    "mysql",
+    "redis",
+    "graphite",
+    "grafana"
+  ],
+  "workspaceFolder": "/home/node",
+  "customizations": {
+    "vscode": {
+      "extensions": [],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "forwardPorts": [
+    "backend:9905", // 后端API服务端口
+    "frontend:9906", // 前端服务端口
+    "mysql:3306", // MySQL数据库端口
+    "redis:6379", // Redis端口
+    "graphite:8880", // Graphite监控服务端口
+    "grafana:3000" // Grafana监控面板端口
+  ],
+  // "onCreateCommand": "apk add bash curl git libstdc++ procps-ng",
+  // "remoteUser": "node"
+}

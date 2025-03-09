@@ -1,4 +1,15 @@
 services:
+  devcontainer:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:22
+    container_name: mili-devcontainer
+    profiles: [ dev ]
+    tty: true
+    stdin_open: true
+    command: [ "tail", "-f", "/dev/null" ]
+    entrypoint: [ "/bin/bash", "-c" ]
+    networks:
+      - mili-network
+
   frontend:
     # build:
     #   context: ./pc
