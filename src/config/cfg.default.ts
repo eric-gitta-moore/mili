@@ -2,7 +2,7 @@ import * as path from 'path';
 
 const domain = process.env.DOMAIN || 'localhost';
 const port = process.env.PORT || 9905;
-const url = `http://${domain}`;
+const url = process.env.MAIN_URL || `http://${domain}`;
 const mDomain = 'm-dev.golang123.com';
 const mURL = `http://${mDomain}`;
 

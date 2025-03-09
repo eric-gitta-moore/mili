@@ -1,13 +1,13 @@
 services:
   frontend:
-    # build:
-    #   context: ./pc
-    image: ghcr.io/eric-gitta-moore/mili/mili-frontend:master
+    build:
+      context: ./pc
+    # image: ghcr.io/eric-gitta-moore/mili/mili-frontend:master
     container_name: mili-frontend
     platform: linux/amd64
     restart: always
     environment:
-      PUBLIC_PATH: "/"
+      PUBLIC_PATH: "/static/"
     # ports:
     #   - "9906:9906"
     networks:
@@ -17,9 +17,9 @@ services:
       start_period: 10s
 
   backend:
-    # build:
-    #   context: .
-    image: ghcr.io/eric-gitta-moore/mili/mili-backend:master
+    build:
+      context: .
+    # image: ghcr.io/eric-gitta-moore/mili/mili-backend:master
     container_name: mili-web
     platform: linux/amd64
     restart: always
@@ -29,6 +29,7 @@ services:
       REDIS_HOST: redis
       STATS_D_HOST: graphite
       STATIC_URL: "/static"
+      MAIN_URL: "/"
     # ports:
     #   - "9905:9905"
     networks:
