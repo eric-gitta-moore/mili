@@ -44,6 +44,17 @@
     </tr>
 </table>
 
+### FAQ
+有时候 codespaces 卡了，导致数据库连不上，或者建表失败，可能要重跑一下。
+
+重新跑基本上都能够运行成功了
+```bash
+docker compose down
+
+sudo rm -rf runtime
+
+docker compose up -d
+```
 
 ## 本地运行
 首页: http://localhost:7780/
