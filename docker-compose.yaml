@@ -7,9 +7,9 @@ services:
     platform: linux/amd64
     restart: always
     environment:
-      PUBLIC_PATH: "//127.0.0.1:9906/"
-    ports:
-      - "9906:9906"
+      PUBLIC_PATH: "/"
+    # ports:
+    #   - "9906:9906"
     networks:
       - mili-network
     healthcheck:
@@ -29,8 +29,8 @@ services:
       REDIS_HOST: redis
       STATS_D_HOST: graphite
       STATIC_URL: "/static"
-    ports:
-      - "9905:9905"
+    # ports:
+    #   - "9905:9905"
     networks:
       - mili-network
     depends_on:
