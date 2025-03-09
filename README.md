@@ -1,7 +1,6 @@
-[中文](./README.md) | [English](./README.en.md)
+# mili
 
-mili   
-=
+[中文](./README.md) | [English](./README.en.md)
 
 **mili**是一个开源的社区系统，界面优雅，功能丰富。
 已在[米粒网](https://www.golang123.com) 得到应用，你完全可以用它来搭建自己的社区。**mili**的前端使用**vue**、**iview**等技术来开发，后端使用**typescript**、**nodejs**、**nestjs**、**typeorm**等技术来开发。 
