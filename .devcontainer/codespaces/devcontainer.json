@@ -32,5 +32,5 @@
     "graphite:8880", // Graphite监控服务端口
     "grafana:3000" // Grafana监控面板端口
   ],
-  "postStartCommand": "cd /workspaces/mili/ && docker compose up -d"
+  "postStartCommand": "cd /workspaces/mili/ && sudo rm -rf ./runtime && docker compose up -d"
 }
