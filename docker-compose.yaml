@@ -14,9 +14,7 @@ services:
       - mili-network
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:9906" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      start_period: 10s
 
   backend:
     # build:
@@ -30,7 +28,7 @@ services:
       DB_HOST: mysql
       REDIS_HOST: redis
       STATS_D_HOST: graphite
-      STATIC_URL: "//localhost:9906"
+      STATIC_URL: "/static"
     ports:
       - "9905:9905"
     networks:
@@ -42,9 +40,27 @@ services:
       - frontend
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:9905" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      start_period: 10s
+
+  canddy:
+    image: caddy:2-alpine
+    container_name: mili-canddy
+    restart: always
+    ports:
+      - "7780:80"
+      - "7443:443"
+    volumes:
+      - ./infra/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./runtime/caddy_data:/data
+      - ./runtime/caddy_config:/config
+    networks:
+      - mili-network
+    depends_on:
+      - frontend
+      - backend
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://localhost/health" ]
+      start_period: 10s
 
   mysql:
     image: mysql:5.6
@@ -65,9 +81,7 @@ services:
       - mili-network
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      start_period: 10s
 
   redis:
     image: redis:latest
@@ -84,9 +98,7 @@ services:
       - mili-network
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      start_period: 10s
 
   graphite:
     image: graphiteapp/graphite-statsd
@@ -100,6 +112,9 @@ services:
       - "8126:8126"
     networks:
       - mili-network
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "--tries=1", "--spider", "http://localhost/" ]
+      start_period: 10s
 
   grafana:
     image: grafana/grafana
@@ -113,9 +128,7 @@ services:
       - graphite
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3000/api/health" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      start_period: 10s
 
 networks:
   mili-network:
