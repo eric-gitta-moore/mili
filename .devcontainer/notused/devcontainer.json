@@ -1,5 +1,6 @@
 {
   "name": "Mili Test",
   "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:22",
-  "workspaceFolder": "/home/node"
+  "workspaceFolder": "/home/node",
+  // sdafdsaf
 }
