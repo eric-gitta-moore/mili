@@ -32,6 +32,11 @@
 
 映射端口 `7780`
 
+> (通常不需要这一步) 手动查看构建日志:
+>
+> Use Cmd/Ctrl + Shift + P -> View Creation Log to see full logs
+>
+
 ## 本地运行
 首页: http://localhost:7780/
 
