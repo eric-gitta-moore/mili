@@ -21,7 +21,11 @@ mili
 
 
 ## Quickstart
-一步到位
+代码都不想拉？直接浏览器里面一步到位
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/eric-gitta-moore/mili)
+
+## 本地运行
 
 ```bash
 git clone https://github.com/eric-gitta-moore/mili.git
@@ -31,7 +35,7 @@ docker compose up -d
 ![](https://github.com/user-attachments/assets/a0c1d315-f43e-43b6-ba1a-2cd44c2c07c8)
 
 
-## Docker 运行
+### 本地构建
 > 确保全程 🪜 在线，不然 docker.io 和 ghcr.io 拉不下来
 >
 > macOS 建议使用 OrbStack (注意需要安装 Rosetta)，Windows 建议使用 WSL2
@@ -48,7 +52,7 @@ docker compose up -d --build
 
 > 注意：在 Apple Silicon 芯片的 Mac 上，某些依赖可能需要使用 x86_64 架构运行以避免兼容性问题。使用 `--platform linux/amd64` 参数可以确保容器在模拟的 x86_64 环境中运行。
 
-## 本地开发
+### 本地开发
 强烈强烈强烈建议用 Docker Compose 来运行
 
 不然 macOS Apple Silicon Chip 跑会搞死人，包括但不限于 Python2、Node 8、node-sass、C++、npm拉git 问题，还有数据库缺胳膊少腿
